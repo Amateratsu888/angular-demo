@@ -1,8 +1,6 @@
-stages {
+node {
     stage("clone code") {
-        steps{
             git credentialsId:'github-access-token', url: 'https://github.com/Amateratsu888/angular-demo.git', branch:'master'
-        }
     }
     stage('build code'){
         steps{
