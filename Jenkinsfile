@@ -3,11 +3,13 @@ node {
             git credentialsId:'github-access-token', url: 'https://github.com/Amateratsu888/angular-demo.git', branch:'master'
     }
     stage('install node_modules'){
+
             sh 'npm install'
+            sh 'su vagrant'
         }
     stage('build code'){
-            sh 'npm run build'
             sh 'whoami'
+            sh 'npm run build'
         }
     stage('deploy code'){
         sshagent(['deploy_user']) {
