@@ -7,6 +7,7 @@ node {
         }
     stage('build code'){
             sh 'npm run build'
+            sh 'whoami'
         }
     stage('deploy code'){
         sshagent(['deploy_user']) {
