@@ -10,7 +10,7 @@ node {
         }
     stage('deploy code'){
         sshagent(['deploy_user']) {
-            sh 'scp -r -o "PubkeyAuthentication no" /var/lib/jenkins/workspace/angular-demo/dist root@192.168.33.20:/var/www/html'
+            sh 'scp -o "PubkeyAuthentication no" -r  /var/lib/jenkins/workspace/angular-demo/dist root@192.168.33.20:/var/www/html'
         }
     }
 }
