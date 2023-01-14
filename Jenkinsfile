@@ -9,9 +9,9 @@ node {
     stage('build code'){
             sh 'npm run build'
         }
-//     stage('deploy code'){
-//         sshagent(['deploy_user']) {
-//             sh 'scp -r  /var/lib/jenkins/workspace/angular-demo/dist root@192.168.33.20:/var/www/html'
-//         }
-//     }
+    stage('deploy code'){
+         sshagent(['deploy_user']) {
+             sh 'scp -r  /var/lib/jenkins/workspace/angular-demo/dist vagrant@192.168.33.20:/var/www/html'
+         }
+ }
 }
