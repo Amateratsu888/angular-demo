@@ -11,7 +11,7 @@ node {
         }
     stage('deploy code'){
          sshagent(['deploy_user']) {
-             //sh 'scp  -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/angular-demo-pipeline/default vagrant@192.168.33.20:/etc/nginx/sites-available/default'
+             sh 'scp  -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/angular-demo-pipeline/default vagrant@192.168.33.20:/etc/nginx/sites-available/default'
              sh 'scp -r -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/angular-demo-pipeline/dist vagrant@192.168.33.20:/var/www/html'
          }
  }
